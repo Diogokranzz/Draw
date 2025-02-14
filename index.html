@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome (para ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0/dist/tf.min.js"></script>
+
+</head>
+<body>
+    <main>
+        <div class="toolbar">
+            <div class="color-palette">
+                <span class="color-swatch" style="background-color: #000000;" data-color="#000000"></span>
+                <span class="color-swatch" style="background-color: #ff0000;" data-color="#ff0000"></span>
+                <span class="color-swatch" style="background-color: #00ff00;" data-color="#00ff00"></span>
+                <span class="color-swatch" style="background-color: #0000ff;" data-color="#0000ff"></span>
+                <span class="color-swatch" style="background-color: #ffff00;" data-color="#ffff00"></span>
+                <span class="color-swatch" style="background-color: #ff00ff;" data-color="#ff00ff"></span>
+                <span class="color-swatch" style="background-color: #00ffff;" data-color="#00ffff"></span>
+                <span class="color-swatch" style="background-color: #ffffff;" data-color="#ffffff"></span>
+                <!-- Adicione mais cores conforme necessário -->
+                <input type="color" id="colorPicker" value="#000000" class="hidden-color-picker">
+            </div>
+            <div class="brush-size-container">
+                <label for="brushSize">Tamanho:</label>
+                <input type="range" id="brushSize" min="1" max="50" value="5">
+            </div>
+
+            <button id="eraserButton" class="tool-button" title="Borracha"><i class="fas fa-eraser"></i></button>
+            <button id="undoButton" class="tool-button" title="Desfazer"><i class="fas fa-undo"></i></button>
+            <button id="redoButton" class="tool-button" title="Refazer"><i class="fas fa-redo"></i></button>
+            <button id="clearButton" class="tool-button" title="Limpar"><i class="fas fa-trash"></i></button>
+            <button id='predictButton' class="tool-button" title="Prever Desenho"> <i class="fas fa-brain"></i> </button>
+            <button id="saveButton" class="tool-button" title="Salvar Desenho"> <i class="fas fa-save"></i></button>
+
+        </div>
+
+        <canvas id="myCanvas" width="800" height="600"></canvas>
+
+        <div class="predictions">
+            <h3>Previsões da IA:</h3>
+            <div id="results"></div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

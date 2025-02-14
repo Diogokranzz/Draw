@@ -1,0 +1,129 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais moderna */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5; /* Fundo mais claro */
+    margin: 0;
+    color: #333; /* Cor do texto principal */
+}
+
+main {
+    display: flex; /* Usar flexbox para organizar toolbar, canvas e previsões */
+    flex-direction: column; /* Empilhar verticalmente */
+    align-items: center; /* Centralizar horizontalmente */
+    width: 90%; /* Limitar largura para responsividade */
+    max-width: 1000px; /* Largura máxima */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+}
+.toolbar {
+    display: flex;
+    justify-content: space-between; /* Distribuir espaço */
+    align-items: center;
+    width: 100%; /* Ocupar largura total */
+    margin-bottom: 20px;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    flex-wrap: wrap; /* Quebrar linha em telas menores */
+}
+
+.color-palette {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    flex-wrap: wrap; /*Permite que as cores quebrem linha.*/
+}
+
+.color-swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Círculos */
+    margin: 2px;
+    cursor: pointer;
+    border: 2px solid transparent; /* Borda transparente inicial */
+    transition: border-color 0.2s ease; /* Transição suave da borda */
+}
+
+.color-swatch.active {
+    border-color: #555; /* Borda mais escura quando ativo */
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+/*Esconde o input de cor padrão */
+.hidden-color-picker{
+  display: none;
+}
+
+.brush-size-container {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.brush-size-container label {
+    margin-right: 5px;
+}
+
+#brushSize {
+    cursor: pointer;
+    width: 100px; /* Largura fixa para o controle deslizante */
+}
+
+.tool-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 15px; /* Mais espaço */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 5px; /* Margem ajustada */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra nos botões */
+}
+
+.tool-button:hover {
+    background-color: #3e8e41;
+}
+
+#eraserButton.active {
+    background-color: #f44336;
+}
+#eraserButton.active:hover{
+  background-color: #d32f2f;
+}
+
+canvas {
+    background-color: white;
+    border: 1px solid #ddd; /* Borda mais clara */
+    cursor: crosshair;
+    border-radius: 5px;
+     /* Sombra sutil */
+    touch-action: none; /* Desativa o comportamento padrão de toque para evitar zoom */
+}
+.predictions {
+    margin-top: 20px;
+    text-align: left; /* Alinhar texto à esquerda */
+    width: 100%; /* Ocupar largura total */
+}
+
+#results {
+    display: flex; /* Organizar previsões em linha */
+    flex-wrap: wrap; /* Quebrar linha */
+    gap: 10px; /* Espaçamento entre as previsões */
+}
+
+#results p {
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0; /* Remover margem padrão */
+    font-size: 0.9em;
+}
